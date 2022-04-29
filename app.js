@@ -7,6 +7,7 @@
 
 let str = 'apple';
 let arr = str.split('');
+
 for (i = 0; i < arr.length; i++){
     let letterOfWord = document.createElement('li');
     letterOfWord.innerHTML = arr[i];
@@ -15,8 +16,6 @@ for (i = 0; i < arr.length; i++){
     document.getElementById((i+'letter').toString()).style.fontSize ='40px';
 }
 let wordLength = document.querySelector('.lettersOfWord').children.length;
-// let lettersList = document.getElementsByClassName('lettersOfWord')
-
 
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
@@ -41,31 +40,29 @@ for (i = 0; i < alphabet.length; i++){
     
    
     addCircle.addEventListener('click', (e) => {
-        let i=0;
-        while (i < wordLength){
-            console.log(document.getElementById((i+'letter').toString()).textContent)
-        if (e.target.textContent === document.getElementById((i+'letter').toString()).textContent){
-            alert('you got it!');
-            i++;
+       for (i = 0; i < wordLength; i++){
+        let char = document.getElementById((i+'letter').toString()); 
+        let charNext = document.getElementById(((i+1)+'letter').toString());
+
+        if (e.target.textContent != char.textContent 
+            && arr.includes(e.target.textContent) 
+            && char.style.fontSize === "40px"){return;}
+
+        else if (e.target.textContent === char.textContent
+            && char.style.fontSize === "40px"){
+            if (i<(wordLength-1)){    
+           if (e.target.textContent === char.textContent && e.target.textContent === charNext.textContent){
+            char.style.fontSize = "60px";
+            char.style.color = "purple";
             return;
-        }//console.log(e.target.style.fontSize)}
-        else {alert('keep trying!'); return;}
-            //console.log(e.target.textContent
+            }}
+            char.style.fontSize = "60px";
+            char.style.color = "purple";
+            return;
+           }
+
+        else if (e.target.textContent === char.textContent
+            && char.style.fontSize === "60px"){console.log('move on');}
         }
-        }) 
-    
-   }
-
-
-      
-    // if (arr.find(elem => elem === e.innerHTML)===true){
-    //     alert('this is the letter!');
-    
-
-
-
-
-
-
-
-
+    })
+    }
