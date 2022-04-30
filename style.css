@@ -1,7 +1,3 @@
-/* body {
-text-align: center;
-
-} */
 
 .word {
     display: flex;
@@ -12,28 +8,22 @@ text-align: center;
     box-sizing: border-box;
 }
 
-
 li {
     display: inline;
     margin: 5px;
-    /* font-size: 40px; */
-    /* list-style-type: none; */
 }
-/* .word {
-    display: flex;
-    flex-direction: row;
-} */
 
 section {
    height: 80vh;
-   width: 98vw;
+   width: auto;
    display: block;
-   align-self: center;
    border: 1px solid red;
    background-color: lightgrey;
    margin-top: 1rem;
 }
-
+.grey{
+    max-width: 100%;
+}
 .circle {
   display: flex;
   justify-content: space-around;
@@ -53,19 +43,11 @@ section {
   }
 
 @keyframes upAndDown {
-    0% {
-      transform: translateY(0);
-    }
+    0% {transform: translateY(0);}
   
-    25% {
-       transform: translateY(-400%); 
-    }
+    25% {transform: translateY(-400%);}
   
-    75% {
-      transform: translateY(400%);  
-    }
+    75% {transform: translateY(400%);}
   
-    100% {
-      transform: translateY(0); 
-    }
+    100% {transform: translateY(0);}
   }
