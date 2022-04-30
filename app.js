@@ -25,15 +25,15 @@ for (i = 0; i < alphabet.length; i++){
     const addCircle = document.createElement('span');
     addCircle.className = 'circle';
     addCircle.id = i;
-    document.querySelector('.grey').appendChild(addCircle);
+    document.querySelector('section').appendChild(addCircle);
     
 //assigning 'letter' to 'circle'
     let letter = document.createElement('p');
     letter.innerHTML = alphabet[i];
     document.getElementById(i.toString()).appendChild(letter);
-    addCircle.style.left = i*10 + 'px';
-    addCircle.style.marginLeft = '50px';
-    if ((i%2)===0){
+    // addCircle.style.left = i*63 + 'px';
+    // addCircle.style.marginLeft = '0.5px';
+    if ((i%2) === 0){
         addCircle.style.animationDirection = 'alternate';
     } 
     else {addCircle.style.animationDirection = 'alternate-reverse'}  
