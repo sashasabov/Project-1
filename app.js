@@ -5,7 +5,7 @@
 // let str = word.innerHTML;
 // document.querySelector('.word').appendChild(word);
 
-let str = 'apple';
+let str = 'andrew';
 let arr = str.split('');
 
 for (i = 0; i < arr.length; i++){
@@ -25,28 +25,33 @@ for (i = 0; i < alphabet.length; i++){
     const addCircle = document.createElement('span');
     addCircle.className = 'circle';
     addCircle.id = i;
-    document.querySelector('section').appendChild(addCircle);
+    document.querySelector('.grey').appendChild(addCircle);
     
 //assigning 'letter' to 'circle'
     let letter = document.createElement('p');
     letter.innerHTML = alphabet[i];
     document.getElementById(i.toString()).appendChild(letter);
-    // addCircle.style.left = i*63 + 'px';
-    // addCircle.style.marginLeft = '0.5px';
+    // let vowel = ['a', 'e', 'i', 'o', 'u', 'y'];
+    // if (vowel.includes(letter.innerHTML)){addCircle.style.animationDuration = '10s'}
     if ((i%2) === 0){
         addCircle.style.animationDirection = 'alternate';
     } 
     else {addCircle.style.animationDirection = 'alternate-reverse'}  
+
     
  //adding "click" event to 'circle'  
     addCircle.addEventListener('click', (e) => {
        for (i = 0; i < wordLength; i++){
+        document.getElementById('image').style.display = 'none'; 
         let char = document.getElementById((i+'letter').toString()); 
         let charNext = document.getElementById(((i+1)+'letter').toString());
-
+      
         if (e.target.textContent != char.textContent 
             && arr.includes(e.target.textContent) 
-            && char.style.fontSize === "40px"){return;}
+            && char.style.fontSize === "40px"){
+            document.getElementById('image').style.display = 'block'; 
+               
+          return;}
 
         else if (e.target.textContent === char.textContent
             && char.style.fontSize === "40px"){
@@ -62,7 +67,17 @@ for (i = 0; i < alphabet.length; i++){
            }
 
         else if (e.target.textContent === char.textContent
-            && char.style.fontSize === "60px"){console.log('move on');}
+            && char.style.fontSize === "60px"){
+                document.getElementById('image').style.display = 'block';   
+              console.log('move on');}
+              
+        else if (e.target.textContent != char.textContent && char.style.fontSize === "40px" 
+        ){
+         document.getElementById('image').style.display = 'block'; 
+         return;
+        }
+       
         }
     })
-    }
+    
+}
