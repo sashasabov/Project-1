@@ -6,12 +6,15 @@ function addWord(){
   i=i+1;
  let newList = document.createElement('li')
  document.querySelector('ul').appendChild(newList)
- let buttonWord = document.createElement('button');
+ let btnWord = document.createElement('button');
  let input = document.querySelector('input');
- buttonWord.innerHTML = input.value;
- buttonWord.id = "word" + i;
- console.log("button " + buttonWord.id);
- let myWords = newList.appendChild(buttonWord);
+ btnWord.innerHTML = input.value;
+ btnWord.id = "word" + i;
+ btnWord.addEventListener("click", () => {
+     localStorage.setItem('btnWord', btnWord.textContent)
+    location = "level_1.html"; // Navigate to new page
+  });
+ let myWords = newList.appendChild(btnWord);
  input.value = "";
 } 
 

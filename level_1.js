@@ -5,7 +5,8 @@
 // let str = word.innerHTML;
 // document.querySelector('.word').appendChild(word);
 
-let str = 'andrew';
+//let str = 'andrew';
+let str = localStorage.getItem('btnWord');
 let arr = str.split('');
 
 for (i = 0; i < arr.length; i++){
@@ -22,7 +23,7 @@ const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 for (i = 0; i < alphabet.length; i++){
 //creating element 'cirlce'
-    const addCircle = document.createElement('span');
+    let addCircle = document.createElement('span');
     addCircle.className = 'circle';
     addCircle.id = i;
     document.querySelector('.grey').appendChild(addCircle);
