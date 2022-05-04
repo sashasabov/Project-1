@@ -28,7 +28,13 @@ for (i = 0; i < arr.length; i++){
          c.style.fontSize = "60px";
          console.log(e.key);
          return;}}
+         if (i===(arr.length-1)){
+            c.style.fontSize = "60px";
+            c.style.color = "red";
+            document.querySelector('.btn_level').style.display = 'flex';
+            console.log('level 2!');return;}
         c.style.fontSize ='60px';
+        c.style.color = 'red';
         console.log(e.key);
         return;}
 }

@@ -1,14 +1,10 @@
 
-// const word = document.createElement('h');
-// word.innerHTML = 'apple';
-// word.style.fontSize = "60px";
-// let str = word.innerHTML;
-// document.querySelector('.word').appendChild(word);
 
-//let str = 'andrew';
+//let str = 'sasha';
 let str = localStorage.getItem('btnWord');
 let arr = str.split('');
 
+//creating list element for each letter of word
 for (i = 0; i < arr.length; i++){
     let letterOfWord = document.createElement('li');
     letterOfWord.innerHTML = arr[i];
@@ -16,43 +12,56 @@ for (i = 0; i < arr.length; i++){
     document.querySelector('.lettersOfWord').appendChild(letterOfWord);
     document.getElementById((i+'letter').toString()).style.fontSize ='40px';
 }
+
 let wordLength = document.querySelector('.lettersOfWord').children.length;
-
-
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 
 for (i = 0; i < alphabet.length; i++){
 //creating element 'cirlce'
-    let addCircle = document.createElement('span');
-    addCircle.className = 'circle';
-    addCircle.id = i;
-    document.querySelector('.grey').appendChild(addCircle);
+    let objCircle = document.createElement('span');
+    objCircle.className = 'circle';
+    objCircle.id = i;
+    document.querySelector('.grey').appendChild(objCircle);
     
 //assigning 'letter' to 'circle'
     let letter = document.createElement('p');
     letter.innerHTML = alphabet[i];
     document.getElementById(i.toString()).appendChild(letter);
-    // let vowel = ['a', 'e', 'i', 'o', 'u', 'y'];
-    // if (vowel.includes(letter.innerHTML)){addCircle.style.animationDuration = '10s'}
     if ((i%2) === 0){
-        addCircle.style.animationDirection = 'alternate';
+        objCircle.style.animationDirection = 'alternate';
     } 
-    else {addCircle.style.animationDirection = 'alternate-reverse'}  
+    else {objCircle.style.animationDirection = 'alternate-reverse'}  
 
     
  //adding "click" event to 'circle'  
-    addCircle.addEventListener('click', (e) => {
+    objCircle.addEventListener('click', (e) => {
        for (i = 0; i < wordLength; i++){
-        document.getElementById('image').style.display = 'none'; 
+
+       // document.getElementById('image').style.display = 'none'; 
         let char = document.getElementById((i+'letter').toString()); 
         let charNext = document.getElementById(((i+1)+'letter').toString());
+        
+
+        // if(i===wordLength-1){
+        //     console.log('word length condition');
+        //     document.querySelector('.image').style.display = 'block !important'; 
+        // }
+
+        if (e.target.textContent != char.textContent && char.style.fontSize === "40px"){
+         //document.getElementById('image').style.display = 'block'; 
+         alert('Keep trying!');
+         console.log('BUMMER!');
+         return;
+        }
       
-        if (e.target.textContent != char.textContent 
+        else if (e.target.textContent != char.textContent 
             && arr.includes(e.target.textContent) 
             && char.style.fontSize === "40px"){
-            document.getElementById('image').style.display = 'block'; 
-               
-          return;}
+            alert('Keep trying!');
+            //document.getElementById('image').style.display = 'block'; 
+            console.log('BUMMER!')
+            return;}
+       
 
         else if (e.target.textContent === char.textContent
             && char.style.fontSize === "40px"){
@@ -62,6 +71,11 @@ for (i = 0; i < alphabet.length; i++){
             char.style.color = "purple";
             return;
             }}
+            if (i===(wordLength-1)){
+                char.style.fontSize = "60px";
+                char.style.color = "purple";
+                document.querySelector('.btn_level').style.display = 'flex';
+                ;return;}
             char.style.fontSize = "60px";
             char.style.color = "purple";
             return;
@@ -72,12 +86,13 @@ for (i = 0; i < alphabet.length; i++){
                 document.getElementById('image').style.display = 'block';   
               console.log('move on');}
               
-        else if (e.target.textContent != char.textContent && char.style.fontSize === "40px" 
-        ){
-         document.getElementById('image').style.display = 'block'; 
-         return;
-        }
        
+    //    else if (char.id === ((arr.length - 1)+'letter') && e.target.textContent === char.textContent){
+    //         // document.querySelector('level2').style.display = 'block';
+    //         console.log('Level 2 is up!');
+    //     }
+        
+
         }
     })
     
