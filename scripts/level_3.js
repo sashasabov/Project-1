@@ -1,8 +1,9 @@
 
 let rightWord = localStorage.getItem('btnWord');
-console.log(rightWord);
-let sessionSring = sessionStorage.getItem('arr');
-let str = JSON.parse(sessionSring);
+let sessionString = sessionStorage.getItem('arr');
+let str = JSON.parse(sessionString);
+let img = document.getElementById('image');
+img.style.right = '0';
 
 
 for (i = 0; i < str.length; i++){
@@ -13,7 +14,7 @@ for (i = 0; i < str.length; i++){
     objWord.style.width = (str[i].length + 2) +'rem';
     objWord.style.height = '5rem';
     objWord.style.marginRight = '50px'
-    document.querySelector('.grey').appendChild(objWord);
+    document.querySelector('.main').appendChild(objWord);
     
 
     //assigning 'word' to 'circle'
@@ -27,13 +28,17 @@ for (i = 0; i < str.length; i++){
 
     //adding 'click' event to a 'circle'
     objWord.addEventListener('click', (e) => {
-        //document.getElementById('image').style.display = 'none';
+        
     if(e.target.innerHTML === rightWord){
         alert('YAY! YOU GOT IT!')
     }
     else {
-        //document.getElementById('image').style.display = 'block';
-        alert('Keep trying!')
-        console.log('keep trying!')}
-    })
+        img.classList.add('active');
+        setTimeout(function(){
+        img.classList.remove('active')
+        }, 1000);
+        // alert('Keep trying!')
+        // console.log('keep trying!')}
+    }
+})
 }

@@ -1,8 +1,7 @@
 
-
-//let str = 'sasha';
 let str = localStorage.getItem('btnWord');
 let arr = str.split('');
+// document.getElementById('image').style.display = 'none';
 
 //creating list element for each letter of word
 for (i = 0; i < arr.length; i++){
@@ -15,13 +14,14 @@ for (i = 0; i < arr.length; i++){
 
 let wordLength = document.querySelector('.lettersOfWord').children.length;
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+let img = document.getElementById('image');
 
 for (i = 0; i < alphabet.length; i++){
 //creating element 'cirlce'
     let objCircle = document.createElement('span');
     objCircle.className = 'circle';
     objCircle.id = i;
-    document.querySelector('.grey').appendChild(objCircle);
+    document.querySelector('.main').appendChild(objCircle);
     
 //assigning 'letter' to 'circle'
     let letter = document.createElement('p');
@@ -32,41 +32,35 @@ for (i = 0; i < alphabet.length; i++){
     } 
     else {objCircle.style.animationDirection = 'alternate-reverse'}  
 
-    
- //adding "click" event to 'circle'  
+//adding "click" event to 'circle'  
     objCircle.addEventListener('click', (e) => {
        for (i = 0; i < wordLength; i++){
 
-       // document.getElementById('image').style.display = 'none'; 
         let char = document.getElementById((i+'letter').toString()); 
         let charNext = document.getElementById(((i+1)+'letter').toString());
         
-
-        // if(i===wordLength-1){
-        //     console.log('word length condition');
-        //     document.querySelector('.image').style.display = 'block !important'; 
-        // }
-
         if (e.target.textContent != char.textContent && char.style.fontSize === "40px"){
-         //document.getElementById('image').style.display = 'block'; 
-         alert('Keep trying!');
-         console.log('BUMMER!');
+        img.classList.add('active');
+        setTimeout(function(){
+        img.classList.remove('active')
+        }, 1000);
          return;
-        }
+    }
       
         else if (e.target.textContent != char.textContent 
             && arr.includes(e.target.textContent) 
             && char.style.fontSize === "40px"){
-            alert('Keep trying!');
-            //document.getElementById('image').style.display = 'block'; 
-            console.log('BUMMER!')
-            return;}
-       
-
+        img.classList.add('active');
+        setTimeout(function(){
+        img.classList.remove('active')
+        }, 1000);
+        return;
+    }
+        
         else if (e.target.textContent === char.textContent
             && char.style.fontSize === "40px"){
             if (i<(wordLength-1)){    
-           if (e.target.textContent === char.textContent && e.target.textContent === charNext.textContent){
+            if (e.target.textContent === char.textContent && e.target.textContent === charNext.textContent){
             char.style.fontSize = "60px";
             char.style.color = "purple";
             return;
@@ -75,25 +69,13 @@ for (i = 0; i < alphabet.length; i++){
                 char.style.fontSize = "60px";
                 char.style.color = "purple";
                 document.querySelector('.btn_level').style.display = 'flex';
-                ;return;}
+                return;
+            }
             char.style.fontSize = "60px";
             char.style.color = "purple";
-            return;
-           }
-
-        else if (e.target.textContent === char.textContent
-            && char.style.fontSize === "60px"){
-                document.getElementById('image').style.display = 'block';   
-              console.log('move on');}
-              
-       
-    //    else if (char.id === ((arr.length - 1)+'letter') && e.target.textContent === char.textContent){
-    //         // document.querySelector('level2').style.display = 'block';
-    //         console.log('Level 2 is up!');
-    //     }
-        
-
+            return;    
+           } 
         }
     })
-    
 }
+                
