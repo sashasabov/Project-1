@@ -50,7 +50,8 @@ for (i = 0; i < str.length; i++){
         document.querySelector('h1').innerHTML = 'YAY! YOU PASSED ALL LEVELS AND LEARNED A NEW WORD!';
         document.querySelector('h1').style.color = 'white';
         document.querySelector('.main').style.display = 'none';
-        // document.getElementById('red3').classList.add('active');
+        document.querySelector('#emoji').classList.add('active');
+      
         // if(gameTheme ==='red'){
         //     let imgBonus = document.getElementById(('red'+(Math.floor(Math.random() * 3) + 1)).toString()); 
         // imgBonus.classList.add('active');return;
