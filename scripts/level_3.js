@@ -44,14 +44,13 @@ for (i = 0; i < str.length; i++){
 
 //adding 'click' event to a 'circle'
     objWord.addEventListener('click', (e) => {
-        
-     //   commented out all these data to make it work faster    
+//   commented out all these to make it work faster    
     if(e.target.innerHTML === rightWord){
         // alert('YAY! YOU GOT IT!')
         document.querySelector('h1').innerHTML = 'YAY! YOU PASSED ALL LEVELS AND LEARNED A NEW WORD!';
         document.querySelector('h1').style.color = 'white';
         document.querySelector('.main').style.display = 'none';
-        document.getElementById('red3').classList.add('active');
+        // document.getElementById('red3').classList.add('active');
         // if(gameTheme ==='red'){
         //     let imgBonus = document.getElementById(('red'+(Math.floor(Math.random() * 3) + 1)).toString()); 
         // imgBonus.classList.add('active');return;

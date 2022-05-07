@@ -13,10 +13,8 @@ if(gameTheme ==='forestgreen'){
         document.body.style.backgroundColor = 'saddlebrown';
         }
 
-
 let str = localStorage.getItem('btnWord');
 let arr = str.split('');
-
 
 //creating list element for each letter of word
 for (i = 0; i < arr.length; i++){
