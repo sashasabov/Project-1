@@ -1,7 +1,22 @@
+let gameTheme = localStorage.getItem('style');
+
+if(gameTheme ==='red'){
+document.querySelector('section').style.backgroundColor = gameTheme;
+document.body.style.backgroundColor = 'blue';
+}
+if(gameTheme ==='cornflowerblue'){
+    document.querySelector('section').style.backgroundColor = gameTheme;
+    document.body.style.backgroundColor = 'tomato';
+    }
+if(gameTheme ==='forestgreen'){
+        document.querySelector('section').style.backgroundColor = gameTheme;
+        document.body.style.backgroundColor = 'saddlebrown';
+        }
+
 
 let str = localStorage.getItem('btnWord');
 let arr = str.split('');
-// document.getElementById('image').style.display = 'none';
+
 
 //creating list element for each letter of word
 for (i = 0; i < arr.length; i++){
@@ -12,7 +27,6 @@ for (i = 0; i < arr.length; i++){
     document.getElementById((i+'letter').toString()).style.fontSize ='40px';
 }
 
-let wordLength = document.querySelector('.lettersOfWord').children.length;
 const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 let img = document.getElementById('image');
 
@@ -34,7 +48,7 @@ for (i = 0; i < alphabet.length; i++){
 
 //adding "click" event to 'circle'  
     objCircle.addEventListener('click', (e) => {
-       for (i = 0; i < wordLength; i++){
+       for (i = 0; i < arr.length; i++){
 
         let char = document.getElementById((i+'letter').toString()); 
         let charNext = document.getElementById(((i+1)+'letter').toString());
@@ -59,20 +73,20 @@ for (i = 0; i < alphabet.length; i++){
         
         else if (e.target.textContent === char.textContent
             && char.style.fontSize === "40px"){
-            if (i<(wordLength-1)){    
+            if (i<(arr.length-1)){    
             if (e.target.textContent === char.textContent && e.target.textContent === charNext.textContent){
             char.style.fontSize = "60px";
-            char.style.color = "purple";
+            char.style.color = gameTheme;
             return;
             }}
-            if (i===(wordLength-1)){
+            if (i===(arr.length-1)){
                 char.style.fontSize = "60px";
-                char.style.color = "purple";
+                char.style.color = gameTheme;
                 document.querySelector('.btn_level').style.display = 'flex';
                 return;
             }
             char.style.fontSize = "60px";
-            char.style.color = "purple";
+            char.style.color = gameTheme;
             return;    
            } 
         }

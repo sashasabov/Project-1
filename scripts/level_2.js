@@ -1,15 +1,28 @@
+let gameTheme = localStorage.getItem('style');
+
+if(gameTheme ==='red'){
+document.querySelector('section').style.backgroundColor = gameTheme;
+document.body.style.backgroundColor = 'blue';
+}
+if(gameTheme ==='cornflowerblue'){
+    document.querySelector('section').style.backgroundColor = gameTheme;
+    document.body.style.backgroundColor = 'tomato';
+    }
+if(gameTheme ==='forestgreen'){
+        document.querySelector('section').style.backgroundColor = gameTheme;
+        document.body.style.backgroundColor = 'saddlebrown';
+        }
 
 let str = localStorage.getItem('btnWord');
 let arr = str.split('');
 let img = document.getElementById('image');
-// document.getElementById('image').style.display = 'none';
 
 for (i = 0; i < arr.length; i++){
 //assing letter into inline list element    
     let char = document.createElement('li');
     char.innerHTML = arr[i];
     char.id = i + 'letter';
-    document.querySelector('li').appendChild(char);
+    document.querySelector('.word').appendChild(char);
     document.getElementById((i+'letter').toString()).style.fontSize ='40px';
 }
 
@@ -23,17 +36,17 @@ for (i = 0; i < arr.length; i++){
         if (i < (arr.length - 1)){    
         if (e.key === c.textContent && e.key === cNext.textContent){
          c.style.fontSize = "60px";
-         c.style.color = "red";
+         c.style.color = gameTheme;
          return;
         }
     }
          if (i===(arr.length-1)){
             c.style.fontSize = "60px";
-            c.style.color = "red";
+            c.style.color = gameTheme;
             document.querySelector('.btn_level').style.display = 'flex';
             return;}
         c.style.fontSize ='60px';
-        c.style.color = 'red';
+        c.style.color = gameTheme;
         return;
     }
     else if (e.key != c.textContent && c.style.fontSize === "40px"){

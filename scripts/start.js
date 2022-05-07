@@ -5,22 +5,20 @@ let arr = [];
 
 function addWord(){
   i=i+1;
- let newList = document.createElement('li')
- document.querySelector('ul').appendChild(newList)
  let btnWord = document.createElement('button');
  let input = document.querySelector('input');
  btnWord.innerHTML = input.value;
+ btnWord.style.fontSize = '30px';
+ btnWord.style.height = '50px';
+ btnWord.style.margin = '5px';
  arr.push(input.value);
  btnWord.id = "word" + i;
  btnWord.addEventListener("click", () => {
-     localStorage.setItem('btnWord', btnWord.textContent)
+    localStorage.setItem('btnWord', btnWord.textContent)
     location = "level_1.html"; // Navigate to new page
   });
- let myWords = newList.appendChild(btnWord);
- console.log(arr.toString());
- 
-// localStorage.setItem('arr', document.querySelector('ul').innerText);
-sessionStorage.setItem('arr',JSON.stringify(arr));
+ document.querySelector('.myWords').appendChild(btnWord);
+ sessionStorage.setItem('arr',JSON.stringify(arr)); //storing array of words for Level 3 
  input.value = "";
 } 
 
@@ -32,9 +30,11 @@ let start = document.createElement('h1');
 start.innerHTML = "Select word to start the game!";
 start.style.textAlign = 'center';
 document.body.appendChild(start);}
+});      
 
-}
-);      
-
-
-
+let btnTheme = document.querySelector('.theme');
+btnTheme.addEventListener('click',(e) => {
+  document.body.style.backgroundColor = e.target.dataset.color;
+  let style = e.target.dataset.color.toString();
+localStorage.setItem('style',e.target.dataset.color.toString());
+});
