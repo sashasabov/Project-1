@@ -1,5 +1,7 @@
 # Sight-Word-Pro Game
 
+https://sashasabov.github.io/Sight-Word-Pro/
+
 ## Project Description
 This project has a form of educational game for kindergarten age kids to help them learn sight words and have fun. This game has three levels:
 
