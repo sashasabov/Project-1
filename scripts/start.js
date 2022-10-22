@@ -7,11 +7,12 @@ function addWord(){
   i=i+1;
  let btnWord = document.createElement('button');
  let input = document.querySelector('input');
- btnWord.innerHTML = input.value;
+ btnWord.innerHTML = input.value.toLowerCase();
  btnWord.style.fontSize = '30px';
  btnWord.style.height = '50px';
  btnWord.style.margin = '5px';
- arr.push(input.value);
+ arr.push(input.value.toLowerCase());
+ console.log(arr)
  btnWord.id = "word" + i;
  btnWord.addEventListener("click", () => {
     localStorage.setItem('btnWord', btnWord.textContent)
